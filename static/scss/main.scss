@@ -1,0 +1,324 @@
+@use "variables" as v;
+@use "navbar";
+
+// ----------------------------------------------------------------------------
+// 0) Reset & box-sizing
+// ----------------------------------------------------------------------------
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ----------------------------------------------------------------------------
+// 1) Design tokens
+// ----------------------------------------------------------------------------
+$bg-light: #EDDBCC;
+$accent:   #2728af ;
+$bg-dark:     #0a0a0a;
+$font:     'Arial', sans-serif;
+
+//#2728af nice blue
+//nicve cream #EDDBCC;
+
+// ----------------------------------------------------------------------------
+// 2) Base styles
+// ----------------------------------------------------------------------------
+body {
+  font-family: $font;
+  line-height: 1.5;
+  color: $bg-light;
+}
+html, body {
+  background-color: $bg-light;
+}
+
+// ----------------------------------------------------------------------------
+// 3) Main wrapper (push below fixed navbar)
+// ----------------------------------------------------------------------------
+.home {
+  padding-top: 4rem; // adjust if your navbar’s taller/shorter
+}
+
+.site-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.about,
+.skills,
+.education,
+.contact {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  scroll-margin-top: 4rem;
+  color: $accent;
+  width: 90%;
+
+}
+
+
+
+.hero{
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  scroll-margin-top: 4rem;
+  //border: 3px solid black;
+  width: 90%;
+}
+.hero__content {
+  h1 {
+    color: $accent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Neue Montreal", sans-serif;
+    font-size: 6vw;
+    font-weight: 500;
+    line-height: 10vw;
+  }
+  p {
+    font-size: 4rem;
+    color: $accent;
+    font-family: Neuemontreal, sans-serif;
+    font-size: 6vw;
+    line-height: .9em;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// 7) About (formerly “Pitch”)
+// ----------------------------------------------------------------------------
+.about {
+  background-color: $bg-light;
+  color: $bg-dark;
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: $accent;
+  }
+
+  .about__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .about__image {
+    flex: 1;
+    max-width: 300px;
+
+    img {
+      width: 100%;
+      border-radius: 50% 50% 40% 40% / 45% 45% 55% 55%; // custom oval
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+    }
+  }
+
+  .about__text {
+    flex: 2;
+    font-size: 1.125rem;
+    line-height: 1.7;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: $accent;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($accent, 10%);
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// 8) Skills grid
+// ----------------------------------------------------------------------------
+.skills-education {
+  padding: 4rem 2rem;
+  background-color: $bg-light;
+  color: $bg-dark;
+  width: 90%;
+  margin: 0 auto;
+  
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background-color: $bg-dark;
+      transform: translateX(-50%);
+    }
+  }
+
+  .skills-column,
+  .education-column {
+    width: 50%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Skills Grid
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background-color: $accent;
+    color: $bg-light;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+  .skill-group {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.2rem;
+      color: $accent;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      img {
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+        background-color: $accent;
+        border-radius: 10px;
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // Timeline
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.65rem;
+      top: 0.4rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      background-color: $accent;
+      border-radius: 50%;
+    }
+
+    .timeline-content {
+      margin-left: 0.5rem;
+      h4 {
+        font-size: 1.1rem;
+        margin: 0 0 0.25rem 0;
+      }
+      p {
+        font-size: 0.95rem;
+        margin: 0;
+        color: darken($bg-dark, 20%);
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// 10) Global link hover
+// ----------------------------------------------------------------------------
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover {
+    color: $accent;
+  }
+}
+// ----------------------------------------------------------------------------
+// 11) Boarder line
+// ----------------------------------------------------------------------------
+.border-line {
+  width: 90%;
+  height: 2px;
+  background-color: $accent;
+  margin: 0 auto;
+}
+ 
+
+// ----------------------------------------------------------------------------
+// 12) Responsive tweaks
+// ----------------------------------------------------------------------------
+@media (max-width: 600px) {
+  .hero__content h1        { font-size: 3rem; }
+  .about__content h2,
+  .education__content h2,
+  .contact__content h2     { font-size: 1.75rem; }
+  .skills__content li      { font-size: 1rem; }
+}

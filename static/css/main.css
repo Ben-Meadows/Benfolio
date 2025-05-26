@@ -1,0 +1,165 @@
+body {
+  background-color: black;
+  color: #FFFFFF;
+  font-family: "Arial", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.navbar ul li a:hover {
+  background-color: #1E293B;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card, .center_card {
+  background: #334155;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.card:hover, .center_card:hover {
+  transform: translateY(-5px);
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
+  margin: 3rem auto;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+@media (max-width: 48rem) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+.card, .center_card {
+  background: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+  width: 100%;
+}
+
+.center_card {
+  grid-column: 2;
+  grid-row: 2;
+  width: 14rem;
+  height: 14rem;
+  background: red;
+  font-weight: bold;
+}
+.center_card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top_left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.top {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.top_right {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.bottom_left {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.bottom {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.bottom_right {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.card:hover, .center_card:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+a {
+  color: #7dd3fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #3b82f6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

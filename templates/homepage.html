@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% load static %}
+
+
+{% block content %}
+<main class="site-main">
+
+  <!-- 1. Hero / Intro -->
+  <section id="hero" class="hero">
+    <div class="hero__content">
+      <h1>Benjamin Meadows </br> Full-Stack Software Developer</h1>
+    </div>
+  </section>
+  <div class="border-line"></div>
+
+  <section id="about" class="about">
+    <div class="about__content">
+      <h2>About Me</h2>
+      <div class="about__wrapper">
+        <div class="about__image">
+          <img src="{% static 'images/about-me.jpg' %}" alt="Photo of Benjamin Meadows" />
+        </div>
+        <div class="about__text">
+
+          <p>
+            I'm a passionate Full-Stack Developer with expertise in modern web technologies. I love creating efficient,
+            scalable, and user-friendly applications that solve real-world problems. With a strong foundation in both
+            front-end and back-end development, I strive to deliver high-quality solutions that exceed expectations.
+          </p>
+
+          <a href="{% static 'files/BenjaminMeadows_CV.pdf' %}" class="button" download>Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="border-line"></div>
+
+
+  <section id="skills-education" class="skills-education">
+    <div class="skills-education__container">
+      <!-- Skills Column -->
+      <div class="skills-column">
+        <h2>Core Skills</h2>
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="skill-icons">
+            <img src="{% static 'icons/python.svg' %}" alt="Python">
+            <img src="{% static 'icons/javascript.svg' %}" alt="JavaScript">
+            <img src="{% static 'icons/java.svg' %}" alt="Java">
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Web Technologies</h3>
+          <div class="skill-icons">
+            <img src="{% static 'icons/react.svg' %}" alt="React">
+            <img src="{% static 'icons/node.svg' %}" alt="Node.js">
+            <img src="{% static 'icons/express.svg' %}" alt="Express">
+            <img src="{% static 'icons/sass.svg' %}" alt="SCSS">
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="skill-icons">
+            <img src="{% static 'icons/mysql.svg' %}" alt="MySQL">
+            <img src="{% static 'icons/mongodb.svg' %}" alt="MongoDB">
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="skill-icons">
+            <img src="{% static 'icons/docker.svg' %}" alt="Docker">
+            <img src="{% static 'icons/git.svg' %}" alt="Git">
+            <img src="{% static 'icons/linux.svg' %}" alt="Linux">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Education Timeline Column -->
+      <div class="education-column">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>B.Sc. Computer Science</h4>
+              <p>Cardiff University — 2:1 (2023)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Full-Stack Portfolio Projects</h4>
+              <p>React / Django / MySQL stack (2023–2024)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Continuous Learning</h4>
+              <p>Leetcode, GitHub, Freelance Experience (2024+)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="border-line"></div>
+
+  <!-- 5. Contact / CTA -->
+  <section id="contact" class="contact">
+    <h2>Let's Build Something</h2>
+    <p><a href="/contact/" class="button">Get in touch →</a></p>
+  </section>
+  <div class="border-line"></div>
+
+
+</main>
+{% endblock %}
