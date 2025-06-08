@@ -191,7 +191,7 @@ html, body {
       bottom: 0;
       left: 50%;
       width: 1px;
-      background-color: $bg-dark;
+      background-color: $accent;
       transform: translateX(-50%);
     }
   }
@@ -237,6 +237,40 @@ html, body {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+
+      i {
+        display: inline-block;       // ensures padding & background apply correctly
+        font-size: 2.5rem;           // increase this value as desired
+        padding: 0.5rem;
+        border-radius: 10px;
+        color: $accent;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+        &::after {
+          content: attr(title);
+          position: absolute;
+          bottom: calc(100% + 0.5rem);
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(0, 0, 0, 0.8);
+          color: #fff;
+          padding: 1rem 1rem;
+          border-radius: 0.25rem;
+          font-size: 1rem;
+          font-family: $font;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.2s;
+        }
+
+        &:hover::after {
+          opacity: 1;
+        }
+      }
 
       img {
         width: 40px;
