@@ -14,3 +14,9 @@ def homepage(request):
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
     return render(request, 'project_detail.html', { 'project': project })
+
+
+def projects(request):
+    """Dedicated projects index page showing all projects as flip cards"""
+    projects = Project.objects.order_by('-project_date_start', '-created_at')
+    return render(request, 'projects.html', { 'projects': projects })
