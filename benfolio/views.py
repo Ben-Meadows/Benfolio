@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Project  # Import Project model
 
 def homepage(request):
@@ -8,6 +8,9 @@ def homepage(request):
         'projects': projects
     }
 
-    
-    
     return render(request, 'homepage.html', context)
+
+
+def project_detail(request, slug):
+    project = get_object_or_404(Project, slug=slug)
+    return render(request, 'project_detail.html', { 'project': project })

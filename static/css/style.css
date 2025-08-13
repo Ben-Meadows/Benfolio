@@ -151,6 +151,128 @@ html, body {
   line-height: 0.9em;
 }
 
+.projects {
+  background-color: #EDDBCC;
+  color: #0a0a0a;
+  width: 90%;
+  padding: 4rem 0;
+}
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2728af;
+}
+.projects__container {
+  width: 100%;
+  margin: 0 auto;
+}
+.projects .project-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+.projects .project-row::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 1px;
+  background-color: #2728af;
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+.projects .project-row.is-reversed {
+  grid-template-columns: 1.2fr 1fr;
+}
+.projects .project-row.is-reversed .project-copy {
+  order: 2;
+}
+.projects .project-row.is-reversed .project-image {
+  order: 1;
+}
+.projects .project-row.in-view {
+  opacity: 1;
+  transform: none;
+}
+.projects .project-row.in-view .project-copy, .projects .project-row.in-view .project-image {
+  opacity: 1;
+  transform: none;
+}
+.projects .kicker {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2728af;
+  margin-bottom: 1rem;
+}
+.projects h3 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: #0a0a0a;
+}
+.projects .meta, .projects .date {
+  color: black;
+  margin-top: 0.5rem;
+}
+.projects .actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.projects .actions .button {
+  display: inline-block;
+  background-color: #2728af;
+  color: #fff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 2rem;
+}
+.projects .actions .button.ghost {
+  background: transparent;
+  color: #2728af;
+  border: 2px solid #2728af;
+}
+.projects .actions .button:hover {
+  background-color: rgb(31.5644859813, 32.3738317757, 141.6355140187);
+}
+.projects .actions .button.ghost:hover {
+  background: #2728af;
+  color: #fff;
+}
+.projects .project-image {
+  width: 100%;
+}
+.projects .project-image img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 900px) {
+  .projects .project-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .projects .project-row::after {
+    display: none;
+  }
+  .projects .project-row.is-reversed .project-copy {
+    order: 1;
+  }
+  .projects .project-row.is-reversed .project-image {
+    order: 2;
+  }
+}
 .about {
   background-color: #EDDBCC;
   color: #0a0a0a;
@@ -358,6 +480,60 @@ a:hover {
   height: 2px;
   background-color: #2728af;
   margin: 0 auto;
+}
+
+.contact {
+  width: 90%;
+  padding: 4rem 0;
+  background-color: #EDDBCC;
+  color: #0a0a0a;
+}
+.contact .contact__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contact .contact__card {
+  width: min(900px, 100%);
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #2728af;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+.contact .contact__card h2 {
+  color: #2728af;
+  margin-bottom: 0.75rem;
+}
+.contact .contact__card p {
+  color: #0a0a0a;
+  margin-bottom: 1.25rem;
+}
+.contact .contact__card .contact__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact .contact__card .contact__actions .button {
+  display: inline-block;
+  background: #2728af;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid #2728af;
+}
+.contact .contact__card .contact__actions .button.ghost {
+  background: transparent;
+  color: #2728af;
+}
+.contact .contact__card .contact__actions .button:hover {
+  background-color: rgb(33.423364486, 34.2803738318, 149.976635514);
+}
+.contact .contact__card .contact__actions .button.ghost:hover {
+  background: #2728af;
+  color: #fff;
 }
 
 @media (max-width: 600px) {

@@ -96,6 +96,140 @@ html, body {
 }
 
 // ----------------------------------------------------------------------------
+// 6) Projects
+// ----------------------------------------------------------------------------
+.projects {
+  background-color: $bg-light;
+  color: $bg-dark;
+  width: 90%;
+  padding: 4rem 0;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: $accent;
+  }
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 3rem 0;
+    position: relative;
+
+    // vertical divider between text and image
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      left: 50%;
+      width: 1px;
+      background-color: $accent;
+      transform: translateX(-50%);
+      opacity: 0.5;
+    }
+
+    &.is-reversed {
+      grid-template-columns: 1.2fr 1fr;
+
+      .project-copy { order: 2; }
+      .project-image { order: 1; }
+    }
+
+    // reveal animation baseline
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+    will-change: opacity, transform;
+
+    &.in-view {
+      opacity: 1;
+      transform: none;
+
+      .project-copy, .project-image {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  .kicker {
+    font-size: 0.85rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $accent;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    color: $bg-dark;
+  }
+
+  .meta, .date {
+    color: darken($bg-dark, 15%);
+    margin-top: .5rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .button {
+      display: inline-block;
+      background-color: $accent;
+      color: #fff;
+      padding: 0.6rem 1.1rem;
+      border-radius: 2rem;
+
+      &.ghost {
+        background: transparent;
+        color: $accent;
+        border: 2px solid $accent;
+      }
+
+      &:hover { background-color: darken($accent, 8%); }
+      &.ghost:hover { background: $accent; color: #fff; }
+    }
+  }
+
+  .project-image {
+    width: 100%;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .projects .project-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    &::after { display: none; }
+
+    &.is-reversed {
+      .project-copy { order: 1; }
+      .project-image { order: 2; }
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
 // 7) About (formerly “Pitch”)
 // ----------------------------------------------------------------------------
 .about {
@@ -347,7 +481,60 @@ a {
  
 
 // ----------------------------------------------------------------------------
-// 12) Responsive tweaks
+// 12) Contact section
+// ----------------------------------------------------------------------------
+.contact {
+  width: 90%;
+  padding: 4rem 0;
+  background-color: $bg-light;
+  color: $bg-dark;
+
+  .contact__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact__card {
+    width: min(900px, 100%);
+    background: rgba(255,255,255,0.5);
+    border: 2px solid $accent;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+
+    h2 { color: $accent; margin-bottom: 0.75rem; }
+    p { color: $bg-dark; margin-bottom: 1.25rem; }
+
+    .contact__actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .button {
+        display: inline-block;
+        background: $accent;
+        color: #fff;
+        padding: 0.7rem 1.2rem;
+        border-radius: 999px;
+        border: 2px solid $accent;
+
+        &.ghost {
+          background: transparent;
+          color: $accent;
+        }
+        &:hover { background-color: darken($accent, 6%); }
+        &.ghost:hover { background: $accent; color: #fff; }
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// 13) Responsive tweaks
 // ----------------------------------------------------------------------------
 @media (max-width: 600px) {
   .hero__content h1        { font-size: 3rem; }
