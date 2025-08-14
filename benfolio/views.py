@@ -20,3 +20,8 @@ def projects(request):
     """Dedicated projects index page showing all projects as flip cards"""
     projects = Project.objects.order_by('-project_date_start', '-created_at')
     return render(request, 'projects.html', { 'projects': projects })
+
+
+def contact(request):
+    """Contact page with modern form design"""
+    return render(request, 'contact.html')
