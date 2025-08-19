@@ -7,13 +7,13 @@
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  border-bottom: 3px solid #2728af;
+  border-bottom: 3px solid #EDDBCC;
   padding: 1rem 0rem;
-  background-color: #EDDBCC;
+  background-color: #0a0a0a;
   padding: 1rem 1rem;
 }
 .navbar__logo {
-  color: #2728af;
+  color: #EDDBCC;
   text-decoration: none;
   font-family: "Neue Montreal", sans-serif;
   margin-top: 20px;
@@ -36,7 +36,7 @@
 }
 .navbar__menu ul li a {
   position: relative;
-  color: #2728af;
+  color: #EDDBCC;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 0;
@@ -51,7 +51,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: #FF6B35;
+  background: #EDDBCC;
   transform: translateX(-50%);
   transition: width 0.3s ease;
 }
@@ -64,22 +64,22 @@
 .navbar__cta {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 2px solid #2728af;
+  border: 2px solid #EDDBCC;
   border-radius: 10px;
-  color: #2728af;
+  color: #EDDBCC;
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
   font-family: "Neue Montreal", sans-serif;
   font-size: 1vw;
   font-weight: 500;
-  color: #2728af;
+  color: #EDDBCC;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: larger;
 }
 .navbar__cta:hover {
-  color: #FF6B35;
-  border: 2px solid #FF6B35;
+  color: #EDDBCC;
+  border: 2px solid #EDDBCC;
 }
 
 *, *::before, *::after {
@@ -95,7 +95,7 @@ body {
 }
 
 html, body {
-  background-color: #EDDBCC;
+  background: linear-gradient(135deg, #0a0a0a 0%, rgb(22.75, 22.75, 22.75) 100%);
 }
 
 .home {
@@ -120,7 +120,7 @@ html, body {
   padding: 4rem 2rem;
   text-align: center;
   scroll-margin-top: 4rem;
-  color: #2728af;
+  color: #EDDBCC;
   width: 90%;
 }
 
@@ -135,7 +135,7 @@ html, body {
 }
 
 .hero__content h1 {
-  color: #2728af;
+  color: #EDDBCC;
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: "Neue Montreal", sans-serif;
@@ -145,22 +145,22 @@ html, body {
 }
 .hero__content p {
   font-size: 4rem;
-  color: #2728af;
+  color: #EDDBCC;
   font-family: Neuemontreal, sans-serif;
   font-size: 6vw;
   line-height: 0.9em;
 }
 
 .projects {
-  background-color: #EDDBCC;
-  color: #0a0a0a;
+  background-color: linear-gradient(135deg, #0a0a0a 0%, rgb(22.75, 22.75, 22.75) 100%);
+  color: #EDDBCC;
   width: 90%;
   padding: 4rem 0;
 }
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #2728af;
+  color: #EDDBCC;
 }
 .projects__container {
   width: 100%;
@@ -198,17 +198,20 @@ html, body {
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #2728af;
+  color: #EDDBCC;
   margin-bottom: 1rem;
+}
+.projects .kicker h3 {
+  color: #EDDBCC;
 }
 .projects h3 {
   font-size: 2.25rem;
   line-height: 1.2;
   margin: 0 0 1rem 0;
-  color: #0a0a0a;
+  color: #EDDBCC;
 }
 .projects .meta, .projects .date {
-  color: hsl(0, 0%, -11.0784313725%);
+  color: rgba(237, 219, 204, 0.85);
   margin-top: 0.5rem;
 }
 .projects .actions {
@@ -246,6 +249,16 @@ html, body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
+.projects .project-copy {
+  color: #EDDBCC;
+}
+.projects .project-copy p {
+  color: #EDDBCC;
+}
+.projects .project-copy strong {
+  color: #EDDBCC;
+}
+
 @media (max-width: 900px) {
   .projects .project-row {
     grid-template-columns: 1fr;
@@ -259,7 +272,7 @@ html, body {
   }
 }
 .about {
-  background-color: #EDDBCC;
+  background-color: linear-gradient(135deg, #0a0a0a 0%, rgb(22.75, 22.75, 22.75) 100%);
   color: #0a0a0a;
   padding: 4rem 2rem;
   text-align: center;
@@ -294,6 +307,7 @@ html, body {
   flex: 2;
   font-size: 1.125rem;
   line-height: 1.7;
+  color: #EDDBCC;
 }
 .about .about__text p {
   margin-bottom: 1.5rem;
@@ -314,7 +328,7 @@ html, body {
 
 .skills-education {
   padding: 4rem 2rem;
-  background-color: #EDDBCC;
+  background-color: linear-gradient(135deg, #0a0a0a 0%, rgb(22.75, 22.75, 22.75) 100%);
   color: #0a0a0a;
   width: 90%;
   margin: 0 auto;
@@ -346,6 +360,7 @@ html, body {
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
+  color: #EDDBCC;
 }
 .skills-education .skills-grid {
   display: grid;
@@ -440,15 +455,17 @@ html, body {
 }
 .skills-education .timeline-item .timeline-content {
   margin-left: 0.5rem;
+  color: #EDDBCC;
 }
 .skills-education .timeline-item .timeline-content h4 {
   font-size: 1.1rem;
   margin: 0 0 0.25rem 0;
+  color: #EDDBCC;
 }
 .skills-education .timeline-item .timeline-content p {
   font-size: 0.95rem;
   margin: 0;
-  color: hsl(0, 0%, -16.0784313725%);
+  color: #EDDBCC;
 }
 
 a {
@@ -463,15 +480,15 @@ a:hover {
 .border-line {
   width: 90%;
   height: 2px;
-  background-color: #2728af;
+  background-color: #EDDBCC;
   margin: 0 auto;
 }
 
 .contact {
   width: 90%;
   padding: 4rem 0;
-  background-color: #EDDBCC;
-  color: #0a0a0a;
+  background-color: linear-gradient(135deg, #0a0a0a 0%, rgb(22.75, 22.75, 22.75) 100%);
+  color: #EDDBCC;
 }
 .contact .contact__container {
   width: 100%;
@@ -480,19 +497,20 @@ a:hover {
 }
 .contact .contact__card {
   width: min(900px, 100%);
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid #2728af;
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(237, 219, 204, 0.3);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
 }
 .contact .contact__card h2 {
-  color: #2728af;
+  color: #EDDBCC;
   margin-bottom: 0.75rem;
 }
 .contact .contact__card p {
-  color: #0a0a0a;
+  color: rgba(237, 219, 204, 0.9);
   margin-bottom: 1.25rem;
 }
 .contact .contact__card .contact__actions {
@@ -511,14 +529,15 @@ a:hover {
 }
 .contact .contact__card .contact__actions .button.ghost {
   background: transparent;
-  color: #2728af;
+  color: #EDDBCC;
+  border: 2px solid #EDDBCC;
 }
 .contact .contact__card .contact__actions .button:hover {
   background-color: rgb(33.423364486, 34.2803738318, 149.976635514);
 }
 .contact .contact__card .contact__actions .button.ghost:hover {
-  background: #2728af;
-  color: #fff;
+  background: #EDDBCC;
+  color: #0a0a0a;
 }
 
 .contact-page {

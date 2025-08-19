@@ -1,8 +1,11 @@
 @use "variables" as v;
+@use "sass:color";
 $bg-light: #EDDBCC;
 $accent:   #2728af ;
 $text:     #0a0a0a;
 $highlight: #FF6B35;
+$bg-dark:     #0a0a0a;
+
 
 .navbar {
   // 1. Basic layout & positioning
@@ -14,14 +17,14 @@ $highlight: #FF6B35;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    border-bottom: 3px solid $accent;
+    border-bottom: 3px solid $bg-light;
     padding: 1rem 0rem;
-    background-color: $bg-light;
+    background-color: $bg-dark;
     padding: 1rem 1rem;
 
     // 4. Logo on the left
     &__logo {
-      color: $accent;
+      color: $bg-light;
       text-decoration: none;
       font-family: "Neue Montreal", sans-serif;
       margin-top: 20px;
@@ -47,7 +50,7 @@ $highlight: #FF6B35;
             li {
             a {
                 position: relative;
-                color: $accent;
+                color: $bg-light;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
                 padding: 0.5rem 0;
@@ -57,15 +60,15 @@ $highlight: #FF6B35;
 
                 // animated underline
                 &::after {
-                content: "";
-                position: absolute;
-                bottom: -4px;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                background: $highlight;
-                transform: translateX(-50%);
-                transition: width 0.3s ease;
+                  content: "";
+                  position: absolute;
+                  bottom: -4px;
+                  left: 50%;
+                  width: 0;
+                  height: 2px;
+                  background: $bg-light;
+                  transform: translateX(-50%);
+                  transition: width 0.3s ease;
                 }
 
                 &:hover,
@@ -85,22 +88,22 @@ $highlight: #FF6B35;
   &__cta {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border: 2px solid $accent;
+    border: 2px solid $bg-light;
     border-radius: v.$border-radius;
-    color: $accent;
+    color: $bg-light;
     text-decoration: none;
     transition: background 0.3s ease, color 0.3s ease;
     font-family: "Neue Montreal", sans-serif;
     font-size: 1vw;
     font-weight: 500;
-    color: $accent;
+    color: $bg-light;
     text-decoration: none;
     transition: color 0.3s ease;
     font-size: larger;
 
     &:hover {
-      color: $highlight;
-      border: 2px solid $highlight;
+      color: $bg-light;
+      border: 2px solid $bg-light;
     }
   }
 }
