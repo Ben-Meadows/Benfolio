@@ -4,17 +4,18 @@
 {% block title %}Projects{% endblock %}
 {% block content %}
 <main class="site-main">
-  <section class="projects-index">
+  <section class="projects-index" data-reveal>
     <div class="projects-index__header">
       <h1>All Projects</h1>
-      <p>Browse selected work and personal builds. Hover a card to flip for details.</p>
+      <p>Browse selected work and personal builds. Click a card to flip for details.</p>
     </div>
 
     <div class="projects-grid-cards">
       {% for project in projects %}
-        <article class="flip-card">
+        <article class="flip-card" data-reveal>
           <div class="flip-card-inner">
             <div class="flip-card-front">
+              <div class="flip-indicator" title="Click to flip" aria-hidden="true">↻</div>
               <div class="project-thumb">
                 {% if project.image %}
                   <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" />

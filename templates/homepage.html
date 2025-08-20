@@ -7,38 +7,53 @@
 <main class="site-main">
 
   <!-- 1. Hero / Intro -->
-  <section id="hero" class="hero">
-    <div class="hero__content">
-      <h1>Benjamin Meadows </br> Full-Stack Software Developer</h1>
-    </div>
-  </section>
-  <div class="border-line"></div>
-
-  <section id="about" class="about">
-    <div class="about__content">
-      <h2>About Me</h2>
-      <div class="about__wrapper">
-        <div class="about__image">
-          <img src="{% static 'images/coolpic.jpeg' %}" alt="Photo of Benjamin Meadows" />
+  <section id="hero" class="hero hero-combo" data-reveal>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="profile-card">
+          <div class="avatar">
+            <img src="{% static 'images/coolpic.jpeg' %}" alt="Benjamin Meadows" />
+          </div>
+          <div class="identity">
+            <h2 class="name">Benjamin Meadows</h2>
+            <p class="role">Full-Stack Web Developer</p>
+            <p class="location"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Bristol, UK</p>
+          </div>
+          <p class="tagline">Building real products for real clients, not just more projects.</p>
+          <div class="actions">
+            <a href="{% static 'files/BenjaminMeadows_CV.pdf' %}" class="button primary" download>Resume</a>
+            <div class="socials">
+              <a href="mailto:benjaminmeadows.work@gmail.com" class="social" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://github.com/BenMeadows" target="_blank" rel="noopener" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/benjamin-meadows/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="about__text">
-
-          <p>
-            I'm a passionate Full-Stack Developer with expertise in modern web technologies. I love creating efficient,
-            scalable, and user-friendly applications that solve real-world problems. With a strong foundation in both
-            front-end and back-end development, I strive to deliver high-quality solutions that exceed expectations.
-          </p>
-
-          <a href="{% static 'files/BenjaminMeadows_CV.pdf' %}" class="button" download>Download Resume</a>
+      </div>
+      <div class="hero-right">
+        <div class="hero__content">
+          <h1>Benjamin Meadows</h1>
+          <h2 class="subtitle">Full-Stack Software Developer</h2>
         </div>
+        <ul class="stack-badges">
+          <li class="badge"><i class="devicon-python-plain"></i> Python</li>
+          <li class="badge"><i class="devicon-django-plain"></i> Django</li>
+          <li class="badge"><i class="devicon-react-original"></i> React</li>
+          <li class="badge"><i class="devicon-nodejs-plain"></i> Node.js</li>
+          <li class="badge"><i class="devicon-mysql-plain"></i> MySQL</li>
+          <li class="badge"><i class="devicon-googlecloud-plain"></i> GCP</li>
+        </ul>
       </div>
     </div>
   </section>
   <div class="border-line"></div>
 
+  
+  <div class="border-line"></div>
+
 
   <!-- 4. Projects Section -->
-  <section id="projects" class="projects">
+  <section id="projects" class="projects" data-reveal>
     <div class="projects__container">
       <h2>Selected Projects</h2>
 
@@ -48,7 +63,12 @@
             <div class="project-copy">
               <div class="kicker">Case study {{ forloop.counter|stringformat:"02" }}</div>
               <h3>{{ project.title }}</h3>
-              <p>{{ project.description }}</p>
+              
+              {% if project.small_description %}
+                <p>{{ project.small_description }}</p>
+              {% else %}
+                <p>{{ project.description }}</p>
+              {% endif %}
 
               {% if project.skills %}
                 <p class="meta"><strong>Skills:</strong> {{ project.skills }}</p>
@@ -92,7 +112,7 @@
   <div class="border-line"></div>
 
 
-  <section id="skills-education" class="skills-education">
+  <section id="skills-education" class="skills-education" data-reveal>
     <div class="skills-education__container">
       <!-- Skills Column -->
       <div class="skills-column">
@@ -168,7 +188,7 @@
   <div class="border-line"></div>
 
   <!-- 5. Contact / CTA -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" data-reveal>
     <div class="contact__container">
       <div class="contact__card">
         <h2>Let’s build something</h2>

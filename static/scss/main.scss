@@ -38,6 +38,18 @@ html, body {
 }
 
 // ----------------------------------------------------------------------------
+// 2.1) Utilities: reveal-on-scroll + spinning accent
+// ----------------------------------------------------------------------------
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-inview] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+// ----------------------------------------------------------------------------
 // 3) Main wrapper (push below fixed navbar)
 // ----------------------------------------------------------------------------
 .home {
@@ -95,6 +107,56 @@ html, body {
     font-family: Neuemontreal, sans-serif;
     font-size: 6vw;
     line-height: .9em;
+  }
+}
+
+// Hero combined layout: profile left, headline and skills right
+.hero-combo {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 2rem;
+    width: 100%;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    .subtitle {
+      color: $bg-light;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 500;
+    }
+
+    .stack-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      list-style: none;
+      padding: 0; margin: .5rem 0 0 0;
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        padding: .4rem .7rem;
+        border-radius: 999px;
+        background: rgba($bg-light, .12);
+        border: 1px solid rgba($bg-light, .25);
+        color: $bg-light;
+        font-weight: 600;
+        i { font-size: 1rem; color: $bg-light; }
+      }
+    }
+
+    .hero-cta { display: flex; gap: .75rem; margin-top: .5rem; }
   }
 }
 
@@ -291,6 +353,96 @@ html, body {
       &:hover {
         background-color: color.adjust($accent, $lightness: -10%);
       }
+    }
+  }
+}
+
+// Portfolio profile section (header-style card)
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  width: min(900px, 100%);
+  background: rgba($bg-dark, 0.7);
+  border: 1px solid rgba($bg-light, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "avatar identity"
+    "tagline tagline"
+    "actions actions";
+  gap: 1.25rem 1.5rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "avatar"
+      "identity"
+      "tagline"
+      "actions";
+    text-align: center;
+  }
+
+  .avatar { grid-area: avatar; }
+  .identity { grid-area: identity; }
+  .tagline { grid-area: tagline; }
+  .actions { grid-area: actions; }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    border: 3px solid $bg-light;
+    overflow: hidden;
+    align-self: start;
+
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  .identity {
+    align-self: center;
+    .name { color: $bg-light; margin: 0; font-size: 1.75rem; }
+    .role { color: rgba($bg-light,.9); margin: .25rem 0; }
+    .location { color: rgba($bg-light,.75); font-size: .95rem; i { color: $accent; margin-right: .4rem; } }
+  }
+
+  .tagline {
+    color: rgba($bg-light,.85);
+    margin-top: .25rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    align-items: center;
+
+    .button.primary {
+      background: $accent;
+      border: 2px solid $accent;
+      color: #fff;
+      padding: .6rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      &:hover { background: color.adjust($accent, $lightness: -6%); }
+    }
+
+    .socials { display: inline-flex; gap: .5rem; }
+    .social {
+      width: 40px; height: 40px; display: grid; place-items: center;
+      color: $bg-light; border: 1px solid rgba($bg-light,.35); border-radius: 999px;
+      background: rgba($bg-light,.07);
+      &:hover { background: $accent; color: white; border-color: transparent; }
     }
   }
 }
@@ -800,12 +952,12 @@ a {
 .projects-index {
   width: 90%;
   padding: 4rem 0;
-  color: $bg-dark;
+  color: $bg-light;
 
   &__header {
     text-align: center;
     margin-bottom: 2rem;
-    h1 { color: $accent; font-size: 2.5rem; margin-bottom: .5rem; }
+    h1 { color: $bg-light; font-size: 2.5rem; margin-bottom: .5rem; }
   }
 }
 
@@ -832,6 +984,7 @@ a {
   aspect-ratio: 3 / 4; // taller card
   perspective: 1000px;
   font-family: $font;
+  cursor: pointer;
 }
 
 .flip-card-inner {
@@ -843,7 +996,7 @@ a {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
 
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -881,15 +1034,25 @@ a {
 }
 
 .flip-card-front {
-  // Dramatic gradient background
-  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+  // Peachy gradient using $bg-light
+  background: linear-gradient(
+    145deg,
+    color.scale($bg-light, $lightness: 40%) 0%,
+    color.scale($bg-light, $lightness: 20%) 50%,
+    color.scale($bg-light, $lightness: 0%) 100%
+  );
   color: $bg-dark;
   border: none;
-  border-left: 4px solid $accent;
+  border-left: 4px solid $bg-light;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
   
   &:hover {
-    background: linear-gradient(145deg, #ffffff 0%, #f1f3f4 50%, #dee2e6 100%);
+    background: linear-gradient(
+      145deg,
+      color.scale($bg-light, $lightness: 35%) 0%,
+      color.scale($bg-light, $lightness: 15%) 50%,
+      color.scale($bg-light, $lightness: -5%) 100%
+    );
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 8px 16px rgba(0,0,0,0.1);
   }
@@ -1027,4 +1190,23 @@ a {
       border-color: rgba(255,255,255,0.6);
     }
   }
+}
+
+// Click hint badge
+.flip-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: $accent;
+  background: rgba($bg-light, 0.9);
+  border: 1px solid rgba($accent, 0.25);
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  opacity: .85;
 }

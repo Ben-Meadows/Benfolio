@@ -13,9 +13,10 @@ $bg-dark:     #0a0a0a;
     left: 0;
     right: 0;         // stretch all the way to the right edge
     width: auto;
-    display: flex;
+    // Use grid so the middle column stays perfectly centered
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     z-index: 1000;
     border-bottom: 3px solid $bg-light;
     padding: 1rem 0rem;
@@ -24,6 +25,7 @@ $bg-dark:     #0a0a0a;
 
     // 4. Logo on the left
     &__logo {
+      grid-column: 1;
       color: $bg-light;
       text-decoration: none;
       font-family: "Neue Montreal", sans-serif;
@@ -39,21 +41,26 @@ $bg-dark:     #0a0a0a;
 
     // 5. Main menu in the middle
     &__menu {
+        grid-column: 2;
         color: $bg-light;
         ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 2rem;
 
             li {
+            display: flex; align-items: center;
             a {
                 position: relative;
                 color: $bg-light;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
                 padding: 0.5rem 0;
+                line-height: 1; // normalize vertical alignment
                 text-decoration: none;
                 transition: color 0.3s ease;
                 font-size: larger;
@@ -86,20 +93,21 @@ $bg-dark:     #0a0a0a;
 
   // 6. Call-to-action on the right
   &__cta {
+    grid-column: 3;
     display: inline-block;
-    padding: 0.5rem 1rem;
+    justify-self: end; // prevent stretching across the 1fr column
+    align-self: center;
+    width: auto;
+    padding: 0.4rem 0.9rem;
     border: 2px solid $bg-light;
     border-radius: v.$border-radius;
     color: $bg-light;
     text-decoration: none;
     transition: background 0.3s ease, color 0.3s ease;
     font-family: "Neue Montreal", sans-serif;
-    font-size: 1vw;
+    font-size: 0.95rem; // fixed, readable size
     font-weight: 500;
-    color: $bg-light;
-    text-decoration: none;
     transition: color 0.3s ease;
-    font-size: larger;
 
     &:hover {
       color: $bg-light;
