@@ -19,7 +19,7 @@
   font-family: "Neue Montreal", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 1vw;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 .navbar__logo:hover, .navbar__logo:focus {
@@ -90,6 +90,31 @@
 .navbar__cta:hover {
   color: #EDDBCC;
   border: 2px solid #EDDBCC;
+}
+@media (max-width: 600px) {
+  .navbar {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    padding: 0.75rem 0.75rem;
+  }
+  .navbar__logo {
+    margin: 0;
+    font-size: 1.1rem;
+    align-self: center;
+  }
+  .navbar__cta {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  .navbar__menu {
+    grid-column: 1/-1;
+    grid-row: 2;
+    margin-top: 0.5rem;
+  }
+  .navbar__menu ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
 
 *, *::before, *::after {
@@ -334,6 +359,7 @@ html, body {
 @media (max-width: 900px) {
   .projects .project-row {
     grid-template-columns: 1fr;
+    display: block;
     gap: 1.5rem;
   }
   .projects .project-row.is-reversed .project-copy {
@@ -341,6 +367,13 @@ html, body {
   }
   .projects .project-row.is-reversed .project-image {
     order: 2;
+  }
+  .projects .project-image {
+    margin-top: 1rem;
+  }
+  .projects .project-image img {
+    width: 100%;
+    height: auto;
   }
 }
 .about {
@@ -540,6 +573,14 @@ html, body {
   background-color: #2728af;
   transform: translateX(-50%);
 }
+@media (max-width: 768px) {
+  .skills-education__container {
+    flex-direction: column;
+  }
+  .skills-education__container::before {
+    display: none;
+  }
+}
 .skills-education .skills-column,
 .skills-education .education-column {
   width: 50%;
@@ -547,6 +588,18 @@ html, body {
   display: flex;
   flex-direction: column;
   color: #EDDBCC;
+}
+@media (max-width: 768px) {
+  .skills-education .skills-column,
+  .skills-education .education-column {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .skills-education .education-column {
+    margin-top: 2rem;
+  }
 }
 .skills-education .skills-grid {
   display: grid;
@@ -1112,6 +1165,7 @@ a:hover {
   text-align: center;
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 .flip-card-back:hover {
   background: linear-gradient(145deg, rgb(43.6471962617, 44.7663551402, 195.8528037383) 0%, rgb(29.7056074766, 30.4672897196, 133.2943925234) 100%);
@@ -1130,8 +1184,11 @@ a:hover {
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
-  flex-grow: 1;
-  text-align: center;
+  flex: 1 1 auto;
+  text-align: left;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 0.4rem;
 }
 .flip-card-back .actions {
   margin-top: auto;

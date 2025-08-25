@@ -65,9 +65,9 @@
               <h3>{{ project.title }}</h3>
               
               {% if project.small_description %}
-                <p>{{ project.small_description }}</p>
+                <p>{{ project.small_description|linebreaksbr }}</p>
               {% else %}
-                <p>{{ project.description }}</p>
+                <p>{{ project.description|linebreaksbr }}</p>
               {% endif %}
 
               {% if project.skills %}
@@ -108,8 +108,6 @@
       {% endfor %}
     </div>
   </section>
-
-  <div class="border-line"></div>
 
 
   <section id="skills-education" class="skills-education" data-reveal>

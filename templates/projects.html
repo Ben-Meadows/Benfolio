@@ -34,7 +34,7 @@
             </div>
             <div class="flip-card-back">
               <h3 class="title">{{ project.title }}</h3>
-              <p class="desc">{{ project.description }}</p>
+              <p class="desc">{{ project.description|linebreaksbr }}</p>
               <div class="actions">
                 <a href="{% url 'project_detail' project.slug %}" class="button ghost">Case study</a>
                 {% if project.link %}<a href="{{ project.link }}" target="_blank" rel="noopener" class="button">Live / Repo</a>{% endif %}

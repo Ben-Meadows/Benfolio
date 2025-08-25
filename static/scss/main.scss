@@ -282,12 +282,22 @@ html, body {
 @media (max-width: 900px) {
   .projects .project-row {
     grid-template-columns: 1fr;
+    display: block; // stack copy above image
     gap: 1.5rem;
 
     &.is-reversed {
       .project-copy { order: 1; }
       .project-image { order: 2; }
     }
+  }
+
+  .projects .project-image {
+    margin-top: 1rem;
+  }
+
+  .projects .project-image img {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -481,6 +491,11 @@ html, body {
       background-color: $accent;
       transform: translateX(-50%);
     }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      &::before { display: none; }
+    }
   }
 
   .skills-column,
@@ -490,6 +505,17 @@ html, body {
     display: flex;
     flex-direction: column;
     color: $bg-light;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .education-column {
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+    }
   }
 
   // Skills Grid
@@ -1123,6 +1149,7 @@ a {
   text-align: center;
   border: none;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  overflow: hidden; // contain inner scroll
   
   &:hover {
     background: linear-gradient(145deg, color.adjust($accent, $lightness: 5%) 0%, color.adjust($accent, $lightness: -10%) 100%);
@@ -1139,12 +1166,15 @@ a {
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 
-  .desc { 
-    font-size: 1rem; 
-    line-height: 1.7; 
+  .desc {
+    font-size: 1rem;
+    line-height: 1.7;
     color: rgba(255,255,255,0.9);
-    flex-grow: 1;
-    text-align: center;
+    flex: 1 1 auto; // take remaining height
+    text-align: left;
+    overflow-y: auto; // enable scroll when overflowing
+    -webkit-overflow-scrolling: touch;
+    padding-right: 0.4rem; // space for scrollbar
   }
 
   .actions { 

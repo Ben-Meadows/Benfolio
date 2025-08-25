@@ -31,7 +31,7 @@ $bg-dark:     #0a0a0a;
       font-family: "Neue Montreal", sans-serif;
       margin-top: 20px;
       margin-bottom: 20px;
-      font-size: 1vw;
+      font-size: 1.25rem;
       font-weight: 500;
       &:hover,
       &:focus {
@@ -112,6 +112,34 @@ $bg-dark:     #0a0a0a;
     &:hover {
       color: $bg-light;
       border: 2px solid $bg-light;
+    }
+  }
+
+  // Mobile layout
+  @media (max-width: 600px) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    padding: 0.75rem 0.75rem;
+
+    &__logo {
+      margin: 0;
+      font-size: 1.1rem;
+      align-self: center;
+    }
+
+    &__cta {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    &__menu {
+      grid-column: 1 / -1; // take full width on second row
+      grid-row: 2;
+      margin-top: 0.5rem;
+      ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
     }
   }
 }
