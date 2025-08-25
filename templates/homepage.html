@@ -21,11 +21,11 @@
           </div>
           <p class="tagline">Building real products for real clients, not just more projects.</p>
           <div class="actions">
-            <a href="{% static 'files/BenjaminMeadows_CV.pdf' %}" class="button primary" download>Resume</a>
+            <a href="{% static 'files/BenjaminMeadows_CV.pdf' %}" class="button primary" download>CV</a>
             <div class="socials">
-              <a href="mailto:benjaminmeadows.work@gmail.com" class="social" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-              <a href="https://github.com/BenMeadows" target="_blank" rel="noopener" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/benjamin-meadows/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="mailto:benjaminmeadows360@hotmail.co.uk" class="social" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://github.com/Ben-Meadows" target="_blank" rel="noopener" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/ben-meadows-640469287/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
           <li class="badge"><i class="devicon-react-original"></i> React</li>
           <li class="badge"><i class="devicon-nodejs-plain"></i> Node.js</li>
           <li class="badge"><i class="devicon-mysql-plain"></i> MySQL</li>
-          <li class="badge"><i class="devicon-googlecloud-plain"></i> GCP</li>
+          <li class="badge"><i class="devicon-amazonwebservices-plain"></i> AWS</li>
         </ul>
       </div>
     </div>
@@ -76,7 +76,7 @@
 
               <div class="actions">
                 {% if project.slug %}
-                  <a href="{% url 'project_detail' project.slug %}" class="button ghost">View case study</a>
+                  <a href="{% url 'project_detail' project.slug %}" class="button primary">View case study</a>
                 {% endif %}
                 {% if project.link %}
                   <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="button">Live / Repo</a>
@@ -154,29 +154,49 @@
       </div>
 
 
-      <!-- Education Timeline Column -->
+      <!-- Experience + Education Column -->
       <div class="education-column">
-        <h2>Education</h2>
+        <h2>Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h4>B.Sc. Computer Science</h4>
-              <p>Cardiff University — 2:1 (2023)</p>
+              <h4>Full-Stack Developer - Glentham Life Sciences (2024 - Present)</h4>
+              
+              <ul>
+                <li>Solo developer owning planning, development, testing, deployment, and infrastructure (Present).</li>
+                <li>Built an internal QMS for training/compliance tracking with automated reminders and approvals.</li>
+                <li>Implemented order delivery status tracking with a customer‑facing progress bar.</li>
+                <li>Developed executive dashboards surfacing KPIs to give leadership real‑time visibility.</li>
+                <li>Owned infrastructure, CI/CD, and testing to ship reliable releases end‑to‑end.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>B.Sc. Computer Science - Cardiff University - 2:1 (2023)</h4>
+              <p>
+                <ul>
+                  <li>Key Modules: AI, machine learning, Discrete mathematics, database systems, object-oriented programming, IoT, Network communications.</li>
+                  <li>Grade: Achieved a high 2:1</li>
+                </ul>
+              </p>  
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h4>Full-Stack Portfolio Projects</h4>
-              <p>React / Django / MySQL stack (2023–2024)</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h4>Continuous Learning</h4>
-              <p>Leetcode, GitHub, Freelance Experience (2024+)</p>
+              <h4>St Peter’s Sixth Form - 2017 – 2019</h4>
+              <p>
+                <ul>
+                  <li>A Level: Maths (B), Biology (C), Chemistry (C)</li>
+                </ul>
+              </p>
             </div>
           </div>
         </div>
@@ -194,9 +214,9 @@
         <h2>Let’s build something</h2>
         <p>If you have an idea, an opening, or just want to say hello, I’m always happy to chat.</p>
         <div class="contact__actions">
-          <a href="mailto:benjaminmeadows.work@gmail.com" class="button">Email me</a>
-          <a href="https://www.linkedin.com/in/benjamin-meadows/" target="_blank" rel="noopener" class="button ghost">LinkedIn</a>
-          <a href="https://github.com/BenMeadows" target="_blank" rel="noopener" class="button ghost">GitHub</a>
+            <a href="mailto:benjaminmeadows360@hotmail.co.uk" class="button">Email me</a>
+          <a href="https://www.linkedin.com/in/ben-meadows-640469287/" target="_blank" rel="noopener" class="button ghost">LinkedIn</a>
+          <a href="https://github.com/Ben-Meadows" target="_blank" rel="noopener" class="button ghost">GitHub</a>
         </div>
       </div>
     </div>

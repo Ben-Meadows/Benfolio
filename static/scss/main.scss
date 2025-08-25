@@ -514,10 +514,9 @@ html, body {
   }
   .skill-group {
     margin-bottom: 2rem;
-
     h3 {
       font-size: 1.2rem;
-      color: $accent;
+      color: $bg-light;
       margin-bottom: 0.5rem;
     }
 
@@ -531,7 +530,7 @@ html, body {
         font-size: 2.5rem;           // increase this value as desired
         padding: 0.5rem;
         border-radius: 10px;
-        color: $accent;
+        color: inherit;
         transition: transform 0.2s ease-in-out;
 
         &:hover {
