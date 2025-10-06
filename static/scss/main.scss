@@ -260,13 +260,21 @@ html, body {
 
   .project-image {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: transparent; // Remove light background
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      max-width: 400px; // Make the GIF smaller
+      height: auto; // Maintain aspect ratio
+      object-fit: contain;
       border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      image-rendering: -webkit-optimize-contrast; // Improve GIF rendering
+      image-rendering: crisp-edges; // Reduce blur
     }
   }
 }
@@ -277,6 +285,232 @@ html, body {
 
   p { color: $bg-light; }
   strong { color: $bg-light; }
+}
+
+// ----------------------------------------------------------------------------
+// Custom CSS Animations for Projects
+// ----------------------------------------------------------------------------
+
+// Animation 1: Travel Animation - Plane flying with location pins
+.travel-animation {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .plane {
+    font-size: 5rem;
+    position: absolute;
+    animation: fly-across 8s linear infinite;
+    filter: drop-shadow(0 0 20px rgba($accent, 0.6));
+    z-index: 10;
+  }
+
+  .location-pin {
+    position: absolute;
+    font-size: 3rem;
+    animation: pin-bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba($accent, 0.5));
+
+    &:nth-child(2) { top: 20%; left: 20%; animation-delay: 0s; }
+    &:nth-child(3) { top: 65%; left: 30%; animation-delay: 0.5s; }
+    &:nth-child(4) { top: 30%; right: 25%; animation-delay: 1s; }
+    &:nth-child(5) { bottom: 25%; right: 20%; animation-delay: 1.5s; }
+  }
+
+  .route-line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba($accent, 0.6), transparent);
+    animation: route-glow 3s ease-in-out infinite;
+
+    &:nth-child(6) { top: 30%; left: 20%; width: 50%; transform: rotate(15deg); }
+    &:nth-child(7) { top: 60%; left: 30%; width: 45%; transform: rotate(-10deg); animation-delay: 1s; }
+  }
+
+  .globe {
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.15;
+    animation: rotate-slow 20s linear infinite;
+  }
+}
+
+@keyframes fly-across {
+  0% { top: 10%; left: -10%; transform: rotate(-15deg); }
+  50% { top: 40%; left: 50%; transform: rotate(5deg); }
+  100% { top: 20%; left: 110%; transform: rotate(-10deg); }
+}
+
+@keyframes pin-bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.1); }
+}
+
+@keyframes route-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Animation 2: Camera/IoT Animation - Smart camera with signals
+.camera-animation {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .camera-icon {
+    font-size: 6rem;
+    z-index: 10;
+    animation: camera-focus 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba($accent, 0.7));
+  }
+
+  .signal-ring {
+    position: absolute;
+    border: 3px solid rgba($accent, 0.6);
+    border-radius: 50%;
+    animation: signal-pulse 2s ease-out infinite;
+
+    &:nth-child(2) { width: 100px; height: 100px; animation-delay: 0s; }
+    &:nth-child(3) { width: 150px; height: 150px; animation-delay: 0.4s; }
+    &:nth-child(4) { width: 200px; height: 200px; animation-delay: 0.8s; }
+  }
+
+  .wifi-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    color: $accent;
+    opacity: 0.7;
+    animation: wifi-pulse 2s ease-in-out infinite;
+
+    &:nth-child(5) { top: 15%; right: 20%; animation-delay: 0s; }
+    &:nth-child(6) { bottom: 20%; left: 15%; animation-delay: 0.7s; }
+  }
+
+  .smart-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: $accent;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba($accent, 0.8);
+    animation: dot-orbit 4s linear infinite;
+
+    &:nth-child(7) { animation-delay: 0s; }
+    &:nth-child(8) { animation-delay: 1s; }
+    &:nth-child(9) { animation-delay: 2s; }
+    &:nth-child(10) { animation-delay: 3s; }
+  }
+}
+
+@keyframes camera-focus {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes signal-pulse {
+  0% { opacity: 0.8; transform: scale(0.8); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes wifi-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes dot-orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+// Animation 3: Puzzle Game Animation - Puzzle pieces and gaming elements
+.puzzle-animation {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .puzzle-piece {
+    position: absolute;
+    font-size: 4rem;
+    animation: puzzle-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba($accent, 0.6));
+    
+    &:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; transform: rotate(-15deg); }
+    &:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.5s; transform: rotate(25deg); }
+    &:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 1s; transform: rotate(10deg); }
+    &:nth-child(4) { bottom: 25%; right: 15%; animation-delay: 1.5s; transform: rotate(-20deg); }
+  }
+
+  .game-controller {
+    font-size: 7rem;
+    z-index: 10;
+    animation: controller-bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba($accent, 0.7));
+  }
+
+  .sparkle {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkle-twinkle 1.5s ease-in-out infinite;
+    
+    &:nth-child(6) { top: 10%; left: 50%; animation-delay: 0s; }
+    &:nth-child(7) { top: 30%; right: 15%; animation-delay: 0.3s; }
+    &:nth-child(8) { bottom: 15%; left: 30%; animation-delay: 0.6s; }
+    &:nth-child(9) { bottom: 35%; right: 25%; animation-delay: 0.9s; }
+  }
+
+  .level-indicator {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 1.5rem;
+    color: $accent;
+    font-weight: bold;
+    animation: level-pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba($accent, 0.8);
+  }
+}
+
+@keyframes puzzle-float {
+  0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+  50% { transform: translateY(-20px) rotate(calc(var(--rotation, 0deg) + 10deg)); }
+}
+
+@keyframes controller-bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes level-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 @media (max-width: 900px) {
@@ -1084,13 +1318,19 @@ a {
 
   .project-thumb { 
     width: 100%; 
+    aspect-ratio: 16 / 9;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .project-thumb img { 
     width: 100%; 
-    aspect-ratio: 16/9; 
-    object-fit: cover; 
+    height: 100%;
+    object-fit: contain; 
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0,0,0,0.1);
@@ -1239,3 +1479,5 @@ a {
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
   opacity: .85;
 }
+
+

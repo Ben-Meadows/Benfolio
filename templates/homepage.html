@@ -93,12 +93,48 @@
             </div>
 
             <div class="project-image">
-              {% if project.image %}
-                <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" />
+              {% if forloop.counter == 1 %}
+                <!-- Travel Animation - EuroRail -->
+                <div class="travel-animation">
+                  <div class="plane">✈️</div>
+                  <div class="location-pin">📍</div>
+                  <div class="location-pin">📍</div>
+                  <div class="location-pin">📍</div>
+                  <div class="location-pin">📍</div>
+                  <div class="route-line"></div>
+                  <div class="route-line"></div>
+                  <div class="globe">🌍</div>
+                </div>
+              {% elif forloop.counter == 2 %}
+                <!-- Camera/IoT Animation -->
+                <div class="camera-animation">
+                  <div class="camera-icon">📷</div>
+                  <div class="signal-ring"></div>
+                  <div class="signal-ring"></div>
+                  <div class="signal-ring"></div>
+                  <div class="wifi-icon">📡</div>
+                  <div class="wifi-icon">📶</div>
+                  <div class="smart-dot"></div>
+                  <div class="smart-dot"></div>
+                  <div class="smart-dot"></div>
+                  <div class="smart-dot"></div>
+                </div>
               {% else %}
-                <img src="{% static 'images/placeholder-16x9.svg' %}" alt="{{ project.title }}" loading="lazy" />
+                <!-- Puzzle Game Animation -->
+                <div class="puzzle-animation">
+                  <div class="puzzle-piece">🧩</div>
+                  <div class="puzzle-piece">🧩</div>
+                  <div class="puzzle-piece">🧩</div>
+                  <div class="puzzle-piece">🧩</div>
+                  <div class="game-controller">🎮</div>
+                  <div class="sparkle">✨</div>
+                  <div class="sparkle">✨</div>
+                  <div class="sparkle">✨</div>
+                  <div class="sparkle">✨</div>
+                  <div class="level-indicator">LVL UP!</div>
+                </div>
               {% endif %}
-            </div>
+            </div>        
           </article>
 
           <div class="border-line"></div>
